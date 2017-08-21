@@ -9,19 +9,13 @@ namespace MS_Delta_CLI
 {
     class Program
     {
-        public static CLIOptions _cliOptions = new CLIOptions();
+        public static CLIOptions CliOptions = new CLIOptions();
 
         static void Main(string[] args)
         {
-            CommandLine.Parser.Default.ParseArgumentsStrict(args, _cliOptions, () =>
-            {
-                Tools.Print(_cliOptions.GetUsage(), false);
-                Environment.Exit(1);
-            });
-            Tools.Print("Command line arguments parsed successfully");
-            FileValidation.ValidateInputFile(_cliOptions.InputFile, _cliOptions.IgnoreSizeLimit);
-
-
+            CommandLine.Parser.Default.ParseArgumentsStrict(args, CliOptions);
+            Tools.Print("Command line arguments parsed successfully!");
+            DeltaCore.CompressOperation(CliOptions);
         }
     }
 }

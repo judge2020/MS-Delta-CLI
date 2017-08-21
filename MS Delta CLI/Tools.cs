@@ -14,7 +14,7 @@ namespace MS_Delta_CLI
             return ByteSize.FromBytes(new FileInfo(filepath).Length).MegaBytes <= 32;
         }
 
-        public static void RequireTrue(bool required, string errorMessage, bool fatal = true)
+        public static void TrueOrDie(bool required, string errorMessage, bool fatal = true)
         {
             if(!required)
             {
@@ -26,12 +26,7 @@ namespace MS_Delta_CLI
 
         public static void Print(string message, bool verbose = true)
         {
-            if(Program._cliOptions.LastParserState == null)
-            {
-                Console.WriteLine(message);
-                return;
-            }
-            if(verbose && !Program._cliOptions.Verbose)
+            if(verbose && !Program.CliOptions.Verbose)
             {
                 return;
             }
