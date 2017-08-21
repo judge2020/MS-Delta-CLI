@@ -1,4 +1,7 @@
 # MS-Delta-CLI
+
+[![Build status](https://ci.appveyor.com/api/projects/status/6cwkwfvxhjhid665/branch/master?svg=true)](https://ci.appveyor.com/project/judge2020/ms-delta-cli/branch/master)
+
 Command line usage for creating and applying delta updates with Microsoft Delta Compression. The best use case is distributing medium-sized files that have changed only a small amount with delta updates to save on bandwidth, file I/O and space. 
 
 For details on how this compression works, see the original package's page [here](https://github.com/taspeotis/DeltaCompressionDotNet#readme).
